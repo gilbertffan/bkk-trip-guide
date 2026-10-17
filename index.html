@@ -25,7 +25,7 @@ section{padding:14px 12px}h2{font-size:18px;margin:6px 4px 10px}
 .esim img{display:block;max-width:100%;margin:8px 0;border-radius:8px}.esim input{margin-top:8px;display:block;max-width:100%;width:100%;font-size:13px}.esim{min-width:0}.del{margin-top:8px;padding:6px 12px;border:1px solid var(--line);background:#fff;border-radius:8px}.tabs{display:flex;gap:6px;margin:0 2px 10px;flex-wrap:wrap}.tabs button{padding:7px 12px;border-radius:18px;border:1px solid var(--line);background:#fff;font-size:14px;color:var(--ink)}.tabs button.on{background:var(--ink);color:#fff}.cb{display:inline-block;font-size:12px;padding:1px 8px;border-radius:10px;color:#fff;margin-right:6px;vertical-align:2px}.rk{display:inline-block;margin-top:4px;font-size:12px;padding:2px 8px;border-radius:10px;background:#1f1f1f;color:#f3d27a}.rk.ext{background:#eee;color:#555}.nb{margin-top:6px;font-size:13px;color:#555;line-height:1.7}.nb a{color:#7b5ea7}.nb small{color:#999}.warn{background:#fff7e6;border:1px solid #f0d9a8;border-radius:10px;padding:8px 10px;font-size:13px}
 
 .notice{background:#fff7e6;border:1px solid #f0d9a8;border-radius:12px;padding:6px 12px;font-size:14px;line-height:1.6}.notice ul{margin:6px 0;padding-left:18px}.notice li{margin:4px 0}
-#events{order:5}.evic{display:flex;align-items:center;justify-content:center;height:90px;font-size:42px;background:linear-gradient(135deg,#efe9df,#e2d9ca)}
+.evic{display:flex;align-items:center;justify-content:center;height:90px;font-size:42px;background:linear-gradient(135deg,#efe9df,#e2d9ca)}
 .evc .ph{height:160px}.evc .bd{padding:10px 12px}.ec{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;background:#f1ece3;color:#6b5a3a;margin:0 4px 2px 0}
 .evd{font-size:13px;color:#8a6d3b;font-weight:600;margin-top:4px}.uv{font-size:11px;color:#a35;font-weight:400}.orig{font-size:12px;color:#999;margin-top:2px}
 .evb{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.evb a{font-size:13px;padding:6px 10px;border-radius:9px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:#fafafa}.evb a.mp{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -38,13 +38,13 @@ section{padding:14px 12px}h2{font-size:18px;margin:6px 4px 10px}
 #nearUI .tabs{margin:0 0 8px}#nearUI .tabs button{padding:5px 10px;font-size:13px}
 .ni{display:flex;gap:8px;align-items:center;padding:8px 10px;background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:6px}.ni .nx{min-width:0;flex:1}.ni .nn{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ni .k{font-size:12px;color:var(--mute)}
 .ni a.go{flex:none;font-size:13px;padding:7px 10px;border-radius:9px;background:var(--ink);color:#fff;text-decoration:none}
-#fav{order:1}.fempty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:14px;color:var(--mute);font-size:14px}
+.fempty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:14px;color:var(--mute);font-size:14px}
 .rl{display:inline-block;font-size:11px;padding:0 7px;border-radius:9px;margin-left:4px;vertical-align:1px;white-space:nowrap}.rl.dr{background:#efe7f8;color:#6a4b9a}.rl.fd{background:#fdeedd;color:#a8601a}
 .dev{margin-top:8px;font-size:13px;line-height:1.7;background:#f7f3fb;border-radius:10px;padding:6px 10px}.dev a{color:#7b5ea7}.dev small{color:#888}
 header .in,nav .in{max-width:1680px;margin:0 auto}nav .in{display:flex;gap:6px}nav{display:block;padding:8px 12px}
 .foot{text-align:center;padding:10px 0 30px}
 .cols{display:flex;flex-direction:column}.content{display:contents}
-#must{order:1}.side{order:2}#all{order:3}#days{order:4}
+
 .dayjump{display:none}
 @media (min-width:768px){
  body{font-size:16px}
@@ -104,11 +104,58 @@ header .in,nav .in{max-width:1680px;margin:0 auto}nav .in{display:flex;gap:6px}n
 #fxP .rate{font-size:13px;color:#345}#fxP .upd{font-size:11px;color:#888}
 #trMap{height:380px;border-radius:12px;overflow:hidden}#trInfo{font-size:13.5px;line-height:1.7;margin-top:8px;background:#f5f8fb;border-radius:10px;padding:8px 10px}#trInfo .k{color:#666;font-size:12px}
 .trleg span{display:inline-block;width:18px;height:5px;border-radius:3px;vertical-align:middle;margin:0 3px 0 8px}
+
+/* ---- nav v2 ---- */
+header .in{display:flex;align-items:center;gap:10px;flex-wrap:wrap}header h1{margin-right:auto}
+.wxpill{order:3;min-height:40px;border:1px solid #d5e6fa;background:#eef6fd;color:#234;border-radius:20px;padding:6px 12px;font-size:14px;cursor:pointer;white-space:nowrap}
+header p{flex-basis:100%;order:4}
+nav{padding:0!important;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+nav .in{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 12px;max-width:1680px;margin:0 auto}
+nav .in::-webkit-scrollbar{display:none}
+nav.fade .in{-webkit-mask-image:linear-gradient(90deg,#000 80%,transparent 99%);mask-image:linear-gradient(90deg,#000 80%,transparent 99%)}nav.fade.fadeL .in{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 80%,transparent 99%);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 80%,transparent 99%)}nav.fadeL:not(.fade) .in{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%);mask-image:linear-gradient(90deg,transparent,#000 12%)}
+nav a{flex:none;scroll-snap-align:start;min-height:42px;display:inline-flex;align-items:center;gap:3px;padding:0 14px!important;border-radius:21px;font-size:15px!important;font-weight:600}
+nav a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+nav a[data-s=prep]{font-weight:400;color:#666;background:#f0eee9}nav a[data-s=prep].on{color:#fff;background:#555}
+.tabs button{min-height:40px}.tabs.tags{align-items:center}.tabs .tl{font-size:12px;color:var(--mute);margin-right:2px}
+.tabs.tags button{background:#faf8f4;font-size:13.5px}.tabs.tags button.on{background:#8a6d3b;border-color:#8a6d3b;color:#fff}
+.seg{margin:10px 0 8px}.seg button{flex:1}
+#wx{padding-top:4px}#wx .wxx{float:right;font-size:13px;font-weight:400;border:1px solid var(--line);background:#fff;border-radius:16px;padding:4px 10px;min-height:34px}
+.ntc{background:#fff7e6;border:1px solid #f0d9a8;border-radius:12px;margin:0 2px 12px;padding:0 12px}.ntc summary{min-height:44px;display:flex;align-items:center;font-weight:600;font-size:14px;cursor:pointer}.ntc .notice{border:0;padding:0 0 8px;background:none}
+.h3{font-size:17px;margin:8px 4px 10px}.sub{margin-bottom:10px}
+#trMap{height:380px}
+.cols>.content>section,.side section{scroll-margin-top:var(--navh,64px)}
+#near,#mapwrap,.day,.sub,#prep,#wx{scroll-margin-top:var(--navh,64px)}
+#prep .prepin>section{padding:0 0 8px}
+.day.today{border:2px solid #1a73e8}.day.today>b::after{content:' 👈 今天';color:#1a73e8;font-size:13px}
+@media (max-width:1023px){.content{display:contents}.side{order:2}#days{order:1}#spots{order:3}#events{order:4}#fav{order:5}}
+@media (min-width:768px){#prep .prepin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
+@media (min-width:1024px){nav .in{padding:10px 24px}#prep{border-top:1px solid var(--line);margin-top:10px}.side #near{margin-top:0}}
 </style><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script></head><body>
-<header><div class="in"><h1>🇹🇭 曼谷之旅</h1><p>2026/10/21（三）– 10/26（一）・2 人</p></div></header>
-<nav><div class="in"><a href="#wx">🌤 天氣</a><a href="#flight">機票・住宿</a><a href="#esim">eSIM</a><a href="#must">必去⭐</a><a href="#mapsec">地圖</a><a href="#all">全部景點</a><a href="#days">每日路線</a><a href="#events">🎟️ 限定活動</a><a href="#transit">🚇 捷運</a><a href="#near" id="navNear">📍 我在哪</a><a href="#fav">❤️ 收藏<span class="bdg" id="favN">0</span></a></div></nav>
-<div class="wrap"><div class="top"><section id="wx"><h2>🌤 曼谷天氣</h2><div class="wxc"><div class="tabs" id="wxA"></div><div id="wxNow" class="now"><div class="sm">天氣載入中…</div></div><div class="strip" id="wxStrip"></div><div class="upd" id="wxUpd"></div></div></section>
-<section id="flight"><h2>✈️ 機票</h2>
+<header><div class="in"><h1>🇹🇭 曼谷之旅</h1><button type="button" id="wxPill" class="wxpill" aria-expanded="false" aria-controls="wx">🌤 <span id="wxPT">天氣</span> ▾</button><p>2026/10/21（三）– 10/26（一）・2 人</p></div></header>
+<nav id="nav"><div class="in" id="navIn"><a href="#days" id="navToday" data-s="days">🗓️ <span id="navTodayL">每日路線</span></a><a href="#near" id="navNear" data-s="near">📍 附近</a><a href="#mapwrap" data-s="mapwrap">🗺️ 地圖</a><a href="#spots" data-s="spots">🔍 景點</a><a href="#events" data-s="events">🎟️ 活動</a><a href="#fav" data-s="fav">❤️ 收藏<span class="bdg" id="favN">0</span></a><a href="#prep" data-s="prep">🧳 出發前</a></div></nav>
+<section id="wx" hidden><h2>🌤 曼谷天氣 <button type="button" class="wxx" id="wxClose" aria-label="收起">收起 ▲</button></h2><div class="wxc"><div class="tabs" id="wxA"></div><div id="wxNow" class="now"><div class="sm">天氣載入中…</div></div><div class="strip" id="wxStrip"></div><div class="upd" id="wxUpd"></div></div></section>
+
+<div class="wrap"><div class="cols"><aside class="side"><section id="mapsec"><h2>🗺️ 地圖・附近</h2><div id="near" class="nearbox"><button id="nearBtn" class="nbtn">📍 我在哪 / 附近景點</button>
+<div class="mt nst" id="nearMsg">🔒 位置只在這支手機上計算，不會上傳、也不會儲存；按「導航」時才會把起點交給 Google Maps。</div>
+<div id="nearUI" style="display:none"><div class="tabs" id="nearR"><button data-v="1">1 km</button><button data-v="3" class="on">3 km</button><button data-v="5">5 km</button><button data-v="0">全部</button></div>
+<div class="tabs" id="nearC"><button data-v="all" class="on">全部</button><button data-v="eat">🍜吃</button><button data-v="drink">🍸喝</button><button data-v="play">🎡玩</button><button data-v="fun">💆樂</button><button data-v="ev">🎟️活動</button></div><div class="tabs tags" id="nearG"><span class="tl">標籤</span><button data-t="fav">❤️收藏</button><button data-t="rec">⭐推薦</button><button data-t="a50">🏆亞洲50大</button><button data-t="relax">💆放鬆</button><button data-t="diy">🧪手作香氛</button><button data-t="shop">🛍️買</button><button data-t="cook">👩‍🍳料理課</button><button data-t="cn">🌿大麻店</button></div>
+<div class="mt" id="nearCount" style="margin:0 2px 6px"></div><div id="nearList"></div><button id="nearStop" class="del">停止定位</button></div></div><div id="mapwrap"><div class="tabs seg" id="mapT"><button type="button" data-v="m" class="on">🗺️ 景點地圖</button><button type="button" data-v="t">🚇 捷運路線</button></div><div id="mapP"><div id="map"></div><div class="mt" style="margin-top:6px"><span style="color:#d9822b">●</span>吃 <span style="color:#7b5ea7">●</span>喝 <span style="color:#2e86ab">●</span>玩 <span style="color:#3a9d5d">●</span>樂・金框大圖釘＝必去⭐・<span style="color:#e0245e">◯</span>粉紅框＝❤️收藏・黑點＝Asok</div></div><div id="transit" class="trp" hidden><div class="mt" style="margin:0 4px 8px">BTS 素坤逸線（含 Samrong–Kheha 延伸）、BTS 席隆線、MRT 藍線、MRT 黃線（Srinakarin）。站點座標取自 OpenStreetMap。點景點卡上的「🚇」或地圖上的站，就會畫出從起點出發的路線。</div>
+<div class="mt" style="margin:0 4px 6px">起點：<select id="trO"></select>（飯店未定，先用 Siam 轉乘站）</div><div id="trMap"></div>
+<div class="mt trleg" style="margin-top:6px"></div><div id="trInfo">點任何景點卡上的 🚇，或點地圖上的車站。</div></div></div><div class="dayjump"><h3>🗓️ 每日路線</h3><div id="dayJump"></div></div></section></aside><div class="content"><section id="days"><h2>🗓️ 每日路線</h2><details class="ntc"><summary>⚠️ 行程期間注意事項（國定假日・禁酒日・大麻・萬聖節）</summary><div class="notice"><ul>
+<li><b>10/23（五）五世皇紀念日・國定假日</b>：不是禁酒日；大皇宮當天停售門票，只開放玉佛寺參拜 08:00–17:00。10/23–25 三天連假，人車較多。</li>
+<li><b>10/24（六）詩麗吉王太后逝世一週年</b>：大皇宮有皇家功德儀式，全城氣氛較肅穆；參觀皇室場所請穿深色或素色、遮肩膝。目前查無夜生活禁令。</li>
+<li><b>10/26（一）出夏節禁酒日</b>：10/25（週日）午夜起全國禁售酒精一整天；合法飯店、持照娛樂場所與觀光區酒吧例外。</li>
+<li><b>🌿 大麻店</b>：2025 年 6 月底起，泰國規定買大麻花一定要有泰國醫師開的處方或醫療證明，很多店裡有駐店醫師可以當場看診開（要帶護照、滿 20 歲）。公共場所不能抽，被抓最高罰 25,000 銖。千萬不要帶回台灣，在台灣是違法毒品，罰很重。軟糖、布朗尼這種吃的很強、又比較晚才發作，先吃一點點，慢慢來。</li>
+<li><b>萬聖節</b>：大型萬聖節派對都在 10/30–31，行程內只有商場裝置、鬼屋與 10/24 Scream Fest。</li>
+</ul></div></details><div id="dayList"></div></section>
+<section id="spots"><h2 class="big2">🔍 景點</h2><div id="must" class="sub"><h3 class="h3">⭐⭐⭐⭐⭐ 必去</h3><div id="mustList"></div></div><div id="all" class="sub"><h3 class="h3">📍 全部景點</h3><div class="tabs" id="allT"><button data-f="all" class="on">全部</button><button data-f="eat">🍜吃</button><button data-f="drink">🍸喝</button><button data-f="play">🎡玩</button><button data-f="fun">💆樂</button></div><div class="tabs tags" id="allG"><span class="tl">標籤</span><button data-t="rec">⭐推薦</button><button data-t="a50">🏆亞洲50大</button><button data-t="relax">💆放鬆</button><button data-t="diy">🧪手作香氛</button><button data-t="shop">🛍️買</button><button data-t="cook">👩‍🍳料理課</button><button data-t="cn">🌿大麻店</button></div><div class="mt" id="allCount" style="margin:0 4px 8px"></div><div id="allList"></div></div></section>
+<section id="events"><h2>🎟️ 限定活動 10/21–10/25</h2><div class="mt" style="margin:0 4px 8px">只收日期有來源確認、且落在行程內的活動；時間為曼谷時間。圖片為主辦單位海報／官方主視覺或場館照片。</div>
+<div class="tabs" id="evDate"><button data-v="all" class="on">全部</button><button data-v="10/22">10/22</button><button data-v="10/23">10/23</button><button data-v="10/24">10/24</button><button data-v="10/25">10/25</button><button data-v="whole">整趟都有</button></div>
+<div class="tabs" id="evCat"><button data-v="all" class="on">全部類別</button><button data-v="展覽">🖼️展覽</button><button data-v="萬聖節">🎃萬聖節</button><button data-v="藝術">🎨藝術</button><button data-v="市集">🛍️市集</button><button data-v="音樂">🎵音樂</button><button data-v="節慶">🎉節慶</button><button data-v="美食">🍽️美食</button></div>
+<div class="mt" id="evCount" style="margin:0 4px 8px"></div><div id="evList"></div></section>
+
+<section id="fav"><h2>❤️ 收藏 <span class="bdg" id="favN2">0</span></h2><div class="mt" style="margin:0 4px 8px">景點和活動都可以收藏，只存在這支手機（localStorage）。</div><div id="favList"></div></section>
+</div></div><section id="prep"><h2>🧳 出發前</h2><div class="mt" style="margin:0 4px 10px">機票、行李、住宿、eSIM 安裝（出發前看一次就好）。</div><div class="prepin"><section id="flight"><h2>✈️ 機票</h2>
 <div class="fl"><b>去程：桃園 → 曼谷</b><div class="mt">2026/10/21（三）晚上抵達</div></div>
 <div class="fl"><b>回程：曼谷 → 桃園</b><div class="mt">2026/10/26（一）凌晨</div></div>
 <div class="warn">航班與時間請見 Trip.com App。</div>
@@ -120,30 +167,8 @@ header .in,nav .in{max-width:1680px;margin:0 auto}nav .in{display:flex;gap:6px}n
 <div class="fl esim" data-k="p1"><b>第 1 支手機</b><div class="slot"></div><input type="file" accept="image/*"><button class="del">刪除</button></div>
 <div class="fl esim" data-k="p2"><b>第 2 支手機</b><div class="slot"></div><input type="file" accept="image/*"><button class="del">刪除</button></div>
 </section>
-<section id="notice"><h2>⚠️ 行程期間注意事項</h2><div class="notice"><ul>
-<li><b>10/23（五）五世皇紀念日・國定假日</b>：不是禁酒日；大皇宮當天停售門票，只開放玉佛寺參拜 08:00–17:00。10/23–25 三天連假，人車較多。</li>
-<li><b>10/24（六）詩麗吉王太后逝世一週年</b>：大皇宮有皇家功德儀式，全城氣氛較肅穆；參觀皇室場所請穿深色或素色、遮肩膝。目前查無夜生活禁令。</li>
-<li><b>10/26（一）出夏節禁酒日</b>：10/25（週日）午夜起全國禁售酒精一整天；合法飯店、持照娛樂場所與觀光區酒吧例外。</li>
-<li><b>🌿 大麻店</b>：2025 年 6 月底起，泰國規定買大麻花一定要有泰國醫師開的處方或醫療證明，很多店裡有駐店醫師可以當場看診開（要帶護照、滿 20 歲）。公共場所不能抽，被抓最高罰 25,000 銖。千萬不要帶回台灣，在台灣是違法毒品，罰很重。軟糖、布朗尼這種吃的很強、又比較晚才發作，先吃一點點，慢慢來。</li>
-<li><b>萬聖節</b>：大型萬聖節派對都在 10/30–31，行程內只有商場裝置、鬼屋與 10/24 Scream Fest。</li>
-</ul></div></section>
-</div><div class="cols"><aside class="side"><section id="mapsec"><h2>🗺️ 地圖</h2><div id="map"></div><div class="mt" style="margin-top:6px"><span style="color:#d9822b">●</span>吃 <span style="color:#7b5ea7">●</span>喝 <span style="color:#2e86ab">●</span>玩 <span style="color:#3a9d5d">●</span>樂・金框大圖釘＝必去⭐・<span style="color:#e0245e">◯</span>粉紅框＝❤️收藏・黑點＝Asok</div><div id="near" class="nearbox"><button id="nearBtn" class="nbtn">📍 我在哪 / 附近景點</button>
-<div class="mt nst" id="nearMsg">🔒 位置只在這支手機上計算，不會上傳、也不會儲存；按「導航」時才會把起點交給 Google Maps。</div>
-<div id="nearUI" style="display:none"><div class="tabs" id="nearR"><button data-v="1">1 km</button><button data-v="3" class="on">3 km</button><button data-v="5">5 km</button><button data-v="0">全部</button></div>
-<div class="tabs" id="nearC"><button data-v="all" class="on">全部</button><button data-v="eat">🍜吃</button><button data-v="drink">🍸喝</button><button data-v="play">🎡玩</button><button data-v="fun">💆樂</button><button data-v="ev">🎟️活動</button><button data-v="fav">❤️收藏</button></div>
-<div class="mt" id="nearCount" style="margin:0 2px 6px"></div><div id="nearList"></div><button id="nearStop" class="del">停止定位</button></div></div><div class="dayjump"><h3>🗓️ 每日路線</h3><div id="dayJump"></div></div></section></aside><div class="content"><section id="must"><h2>⭐⭐⭐⭐⭐ 必去</h2><div id="mustList"></div></section>
-
-<section id="fav"><h2>❤️ 收藏 <span class="bdg" id="favN2">0</span></h2><div class="mt" style="margin:0 4px 8px">景點和活動都可以收藏，只存在這支手機（localStorage）。</div><div id="favList"></div></section>
-<section id="all"><h2>📍 全部景點</h2><div class="tabs"><button data-f="all" class="on">全部</button><button data-f="eat">🍜吃</button><button data-f="drink">🍸喝</button><button data-f="play">🎡玩</button><button data-f="fun">💆樂</button><button data-f="a50">🏆 亞洲50大酒吧</button><button data-f="rec">⭐推薦</button><button data-f="relax">💆放鬆</button><button data-f="diy">🧪手作香氛</button><button data-f="shop">🛍️買</button><button data-f="cook">👩‍🍳料理課</button><button data-f="cn">🌿大麻店</button><button data-f="fav">❤️收藏<span class="bdg" id="favN3">0</span></button></div><div id="allList"></div></section>
-<section id="days"><h2>🗓️ 每日路線</h2><div id="dayList"></div></section>
-<section id="transit"><h2>🚇 捷運路線</h2><div class="mt" style="margin:0 4px 8px">BTS 素坤逸線（含 Samrong–Kheha 延伸）、BTS 席隆線、MRT 藍線、MRT 黃線（Srinakarin）。站點座標取自 OpenStreetMap。點景點卡上的「🚇」或地圖上的站，就會畫出從起點出發的路線。</div>
-<div class="mt" style="margin:0 4px 6px">起點：<select id="trO"></select>（飯店未定，先用 Siam 轉乘站）</div><div id="trMap"></div>
-<div class="mt trleg" style="margin-top:6px"></div><div id="trInfo">點任何景點卡上的 🚇，或點地圖上的車站。</div></section>
-<section id="events"><h2>🎟️ 限定活動 10/21–10/25</h2><div class="mt" style="margin:0 4px 8px">只收日期有來源確認、且落在行程內的活動；時間為曼谷時間。圖片為主辦單位海報／官方主視覺或場館照片。</div>
-<div class="tabs" id="evDate"><button data-v="all" class="on">全部</button><button data-v="10/22">10/22</button><button data-v="10/23">10/23</button><button data-v="10/24">10/24</button><button data-v="10/25">10/25</button><button data-v="whole">整趟都有</button></div>
-<div class="tabs" id="evCat"><button data-v="all" class="on">全部類別</button><button data-v="展覽">🖼️展覽</button><button data-v="萬聖節">🎃萬聖節</button><button data-v="藝術">🎨藝術</button><button data-v="市集">🛍️市集</button><button data-v="音樂">🎵音樂</button><button data-v="節慶">🎉節慶</button><button data-v="美食">🍽️美食</button></div>
-<div class="mt" id="evCount" style="margin:0 4px 8px"></div><div id="evList"></div></section>
-</div></div><p class="mt foot">點照片即開 Google Maps</p></div>
+</div></section>
+<p class="mt foot">點照片即開 Google Maps</p></div>
 <button id="fxBtn" type="button">💱 匯率</button><div id="fxP"><b>💱 匯率</b> <span class="tabs" id="fxC" style="display:inline-flex"><button data-v="TWD" class="on">TWD</button><button data-v="USD">USD</button><button data-v="JPY">JPY</button><button data-v="HKD">HKD</button></span>
 <div class="row"><span class="cur">THB</span><input id="fxT" inputmode="decimal" placeholder="泰銖"></div><div class="row"><span class="cur" id="fxL">TWD</span><input id="fxO" inputmode="decimal" placeholder="台幣"></div>
 <div class="tabs" id="fxQ"><button data-v="100">100 銖</button><button data-v="500">500 銖</button><button data-v="1000">1000 銖</button></div><div class="rate" id="fxR">匯率載入中…</div><div class="upd" id="fxU"></div></div>
@@ -162,8 +187,8 @@ function card(s){return `<div class="card ${s.star?'star':''}" id="c-${s.id}" da
 <div class="ds">${esc(s.desc)}</div><div class="mt">📌 ${esc(s.area)}<br>🕒 ${esc(s.hours)}</div>${s.price?`<div class="pr">💰 ${esc(s.price)}</div>`:''}${s.note?`<div class="nt">※ ${esc(s.note)}</div>`:''}${s.note2?`<div class="nt">${esc(s.note2)}</div>`:''}${s.cn?`<div class="cnw">${CNW}</div>`:''}${s.lat!=null?`<div class="sta" data-sid="${s.id}"></div>`:''}${ctb(s)}${s.src?`<div class="cred">📚 資料：${esc(s.src)}</div>`:''}${s.cred?`<div class="cred">📷 ${esc(s.cred)}</div>`:''}</div></div>`}
 document.getElementById('mustList').innerHTML=DATA.spots.filter(s=>s.star).map(card).join('');
 document.getElementById('allList').innerHTML=DATA.spots.map(card).join('').replace(/id="c-/g,'id="a-');
-let AF='all';function allf(){document.querySelectorAll('#allList .card').forEach(c=>c.style.display=(AF=='all'||c.dataset.g==AF||(AF=='a50'&&c.dataset.a50)||(AF=='cn'&&c.dataset.cn)||(AF=='rec'&&c.dataset.rec)||((c.dataset.tags||'').split(' ').includes(AF))||(AF=='fav'&&window.FAV&&FAV.has('s:'+c.id.slice(2))))?'':'none')}
-document.querySelectorAll('#all .tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#all .tabs button').forEach(x=>x.classList.toggle('on',x===b));AF=b.dataset.f;allf()});
+let AF='all',AT='';const hasTag=(c,t)=>t=='a50'?!!c.dataset.a50:t=='cn'?!!c.dataset.cn:t=='rec'?!!c.dataset.rec:(c.dataset.tags||'').split(' ').includes(t);function allf(){let n=0;document.querySelectorAll('#allList .card').forEach(c=>{const ok=(AF=='all'||c.dataset.g==AF)&&(!AT||hasTag(c,AT));c.style.display=ok?'':'none';if(ok)n++});const e=document.getElementById('allCount');if(e)e.textContent=n+' 個景點'+(AT?'・標籤：'+document.querySelector('#allG button[data-t="'+AT+'"]').textContent:'')}
+document.querySelectorAll('#allT button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#allT button').forEach(x=>x.classList.toggle('on',x===b));AF=b.dataset.f;allf()});document.querySelectorAll('#allG button').forEach(b=>b.onclick=()=>{AT=AT==b.dataset.t?'':b.dataset.t;document.querySelectorAll('#allG button').forEach(x=>x.classList.toggle('on',x.dataset.t==AT));allf()});allf();
 document.getElementById('dayJump').innerHTML=DATA.days.map((d,i)=>`<a href="#day-${i}"><b>${d.d}</b><span>${d.t}</span></a>`).join('')+'<a href="#events"><b>🎟️</b><span>限定活動</span></a>';
 document.getElementById('dayList').innerHTML=DATA.days.map((d,i)=>`<div class="fl day" id="day-${i}"><b>${d.d}</b> <span class="mt">${d.t}</span><br><span class="dw" data-dd="${d.d.slice(0,5)}" data-a="${d.wa||''}">🌤 天氣載入中…</span>
 ${d.stops.length?'<ol>'+d.stops.map(x=>`<li><a href="${x.url}" target="_blank">${esc(x.name)}</a>${x.dr?' <span class="rl dr">🍸 今日酒吧／咖啡</span>':''}${x.fd?' <span class="rl fd">🍽️ 今日主打美食</span>':''}</li>`).join('')+'</ol>':''}
@@ -172,7 +197,7 @@ try{const m=L.map('map');MAP=m;m.setView([13.72,100.58],11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(m);
 const pts=[];DATA.spots.forEach(s=>{if(s.lat==null)return;pts.push([s.lat,s.lon]);
 MK[s.id]=L.circleMarker([s.lat,s.lon],s.star?{radius:12,color:'#e0b04a',weight:4,fillColor:CG[s.g][1],fillOpacity:1}:{radius:6,color:'#fff',weight:1.5,fillColor:CG[s.g][1],fillOpacity:.9})
-.addTo(m).bindPopup(`<b>${esc(s.name)}</b>${s.star?'<br>⭐⭐⭐⭐⭐':''}<br>${CG[s.g][0]}<br><a href="${s.url}" target="_blank">Google Maps</a><br><a href="#transit" onclick="trSpot('${s.id}')">🚇 怎麼搭捷運</a>`)});
+.addTo(m).bindPopup(`<b>${esc(s.name)}</b>${s.star?'<br>⭐⭐⭐⭐⭐':''}<br>${CG[s.g][0]}<br><a href="${s.url}" target="_blank">Google Maps</a><br><a href="#mapwrap" onclick="trSpot('${s.id}')">🚇 怎麼搭捷運</a>`)});
 L.circleMarker(DATA.hotel,{radius:7,color:'#000',fillColor:'#222',fillOpacity:1}).addTo(m).bindPopup('BTS Asok（飯店待訂）');
 m.fitBounds(pts,{padding:[20,20]});}catch(e){document.getElementById('map').innerHTML='<p class="mt" style="padding:12px">地圖需網路連線才能載入。</p>'}
 </script><script>
@@ -203,7 +228,7 @@ function favSync(){const n=[...FAV].filter(k=>(k[0]=='s'&&SP[k.slice(2)])||(k[0]
 addHearts(document);favRender();favSync();
 document.addEventListener('click',ev=>{const b=ev.target.closest('.hrt');if(!b)return;ev.preventDefault();const k=b.dataset.fav;FAV.has(k)?FAV.delete(k):FAV.add(k);try{localStorage.setItem(FK,JSON.stringify([...FAV]))}catch(e){}favRender();favSync()});
 // ---- nearby (geolocation never leaves the device; nothing stored) ----
-const AS={lat:DATA.hotel[0],lon:DATA.hotel[1]};let ME=null,WID=null,NR=3,NC='all',meM=null,meC=null,first=true;
+const AS={lat:DATA.hotel[0],lon:DATA.hotel[1]};let ME=null,WID=null,NR=3,NC='all',NT='',meM=null,meC=null,first=true;
 const $n=i=>document.getElementById(i);
 function hv(a,b){const R=6371,r=Math.PI/180,dl=(b.lat-a.lat)*r,dn=(b.lon-a.lon)*r,x=Math.sin(dl/2)**2+Math.cos(a.lat*r)*Math.cos(b.lat*r)*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
 function nmsg(h,err){const m=$n('nearMsg');m.innerHTML=h;m.classList.toggle('err',!!err)}
@@ -223,14 +248,14 @@ function onErr(e){const t={1:'你沒有允許這個網頁使用位置。要用�
  if(WID!=null){navigator.geolocation.clearWatch(WID);WID=null}nmsg(t+ASB,1)}
 function stopNear(){if(WID!=null)navigator.geolocation.clearWatch(WID);WID=null;ME=null;if(meM){MAP.removeLayer(meM);MAP.removeLayer(meC);meM=meC=null}$n('nearUI').style.display='none';nmsg('已停止定位。🔒 位置不會上傳或儲存。')}
 window.renderNear=function(){if(!ME)return;const it=[];
- DATA.spots.forEach(s=>{if(s.lat!=null)it.push({k:'s:'+s.id,g:s.g,name:s.name,lat:s.lat,lon:s.lon,q:s.q,a:'#a-'+s.id,lab:CG[s.g]})});
+ DATA.spots.forEach(s=>{if(s.lat!=null)it.push({k:'s:'+s.id,g:s.g,tg:[...(s.tags||[]),s.rec?'rec':'',s.a50?'a50':'',s.cn?'cn':''],name:s.name,lat:s.lat,lon:s.lon,q:s.q,a:'#a-'+s.id,lab:CG[s.g]})});
  DATA.ev.forEach(e=>{if(e.lat!=null)it.push({k:'e:'+e.id,g:'ev',name:e.name,lat:e.lat,lon:e.lon,q:e.q,a:'#e-'+e.id,lab:['🎟️活動','#c0567a']})});
- it.forEach(x=>x.d=hv(ME,x));let L_=it.filter(x=>(!NR||x.d<=NR)&&(NC=='all'||(NC=='fav'?FAV.has(x.k):x.g==NC))).sort((a,b)=>a.d-b.d);
+ it.forEach(x=>x.d=hv(ME,x));let L_=it.filter(x=>(!NR||x.d<=NR)&&(NC=='all'||x.g==NC)&&(!NT||(NT=='fav'?FAV.has(x.k):(x.tg||[]).includes(NT)))).sort((a,b)=>a.d-b.d);
  $n('nearCount').textContent=`${ME.fake?'從 BTS Asok':'從你的位置'}・${NR?NR+' km 內':'全部'}：${L_.length} 個`;
  const o=ME.lat.toFixed(5)+','+ME.lon.toFixed(5);
  $n('nearList').innerHTML=L_.length?L_.slice(0,80).map(x=>{const w=Math.max(1,Math.round(x.d*1.3/4.5*60)),walk=x.d<=2.5;
   return `<div class="ni"><div class="nx"><a class="nn" href="${x.a}">${FAV.has(x.k)?'❤️ ':''}<span class="cb" style="background:${x.lab[1]}">${x.lab[0]}</span>${esc(x.name)}</a><div class="k">📏 ${x.d<1?Math.round(x.d*1000)+' m':x.d.toFixed(1)+' km'}・${walk?'🚶 約 '+w+' 分':'🚶 約 '+(w>=60?Math.floor(w/60)+' 小時 '+(w%60)+' 分':w+' 分')+'（建議搭車）'}</div></div><a class="go" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=${o}&destination=${encodeURIComponent(x.q)}&travelmode=${walk?'walking':'transit'}">🧭 導航</a></div>`}).join(''):'<div class="fempty">這個範圍內沒有符合的地點，試試放大半徑或換類別。</div>'};
-$n('nearBtn').onclick=startNear;$n('navNear').addEventListener('click',()=>{if(!ME)startNear()});$n('nearStop').onclick=stopNear;
+document.querySelectorAll('#nearG button').forEach(b=>b.onclick=()=>{NT=NT==b.dataset.t?'':b.dataset.t;document.querySelectorAll('#nearG button').forEach(x=>x.classList.toggle('on',x.dataset.t==NT));renderNear()});$n('nearBtn').onclick=startNear;$n('navNear').addEventListener('click',()=>{if(!ME)startNear()});$n('nearStop').onclick=stopNear;
 [['nearR',v=>NR=+v],['nearC',v=>NC=v]].forEach(([id,set])=>document.querySelectorAll('#'+id+' button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.toggle('on',x===b));set(b.dataset.v);renderNear()}));
 </script><script>
 document.querySelectorAll('.esim').forEach(box=>{const k='esim_'+box.dataset.k,slot=box.querySelector('.slot');
@@ -253,6 +278,7 @@ const TRIP=['2026-10-21','2026-10-22','2026-10-23','2026-10-24','2026-10-25','20
 const fmt=ms=>new Date(ms).toLocaleString('zh-TW',{timeZone:'Asia/Taipei',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
 function render(c,off){const D=c.d;if(!Array.isArray(D))return;const i=WA.findIndex(a=>a[0]==CUR),x=D[i];if(!x)return;const cu=x.current,w=WC(cu.weather_code);
  $('wxNow').innerHTML=`<div class="ic">${w[0]}</div><div><div class="tp">${Math.round(cu.temperature_2m)}°C</div><div class="sm">${WA[i][1]}・${w[1]}・體感 ${Math.round(cu.apparent_temperature)}°C・降雨機率 ${cu.precipitation_probability??'–'}%</div></div>`;
+ const pt=document.getElementById('wxPT');if(pt)pt.textContent=`${Math.round(cu.temperature_2m)}°・☔${cu.precipitation_probability??'–'}%`;
  const dl=x.daily;$('wxStrip').innerHTML=dl.time.map((t,k)=>{const ww=WC(dl.weather_code[k]),dd=new Date(t+'T00:00:00');return `<div class="dd${TRIP.includes(t)?' trip':''}"><b>${+t.slice(5,7)}/${+t.slice(8)}（${'日一二三四五六'[dd.getDay()]}）</b><div class="i">${ww[0]}</div>${Math.round(dl.temperature_2m_min[k])}–${Math.round(dl.temperature_2m_max[k])}°<br>☔${dl.precipitation_probability_max[k]??'–'}%</div>`}).join('');
  const ft=$('wxStrip').querySelector('.trip');if(ft)$('wxStrip').scrollLeft=ft.offsetLeft-$('wxStrip').offsetLeft-4;
  $('wxUpd').textContent=(off?'⚠️ 目前離線／抓不到最新資料，顯示的是 ':'更新時間：')+fmt(c.t)+'（台灣時間）・資料：Open-Meteo・橘框＝旅行日';
@@ -297,7 +323,7 @@ if(!$('fxT').value)$('fxT').value=100;
  const LN=l=>T.lines[l].n;
  document.querySelectorAll('.sta').forEach(el=>{const v=NEAR[el.dataset.sid];if(!v)return;const s=N[v[0]],m=Math.round(v[1]),w=Math.max(1,Math.round(m/80));
   if(m>1500){el.classList.add('far');el.textContent=`🚕 離最近的站（${LN(s.l)} ${s.n}）約 ${(m/1000).toFixed(1)} km，建議搭 Grab 或船`}else el.textContent=`🚇 ${LN(s.l).split(' ')[0]} ${s.n} · 步行約 ${w} 分（${m} m）`;
-  el.onclick=()=>{trSpot(el.dataset.sid);document.getElementById('transit').scrollIntoView({behavior:'smooth'})}});
+  el.onclick=()=>{window.mapTab&&mapTab('t');trSpot(el.dataset.sid);document.getElementById('mapwrap').scrollIntoView({behavior:'smooth'})}});
  const sel=$('trO');const all=Object.keys(N).sort((a,b)=>N[a].n.localeCompare(N[b].n));sel.innerHTML=[...new Set(all.map(k=>N[k].n))].map(n=>`<option${n=='Siam'?' selected':''}>${n}</option>`).join('');
  function path(fromName,to){const src=byName[fromName]||[];const D={},P={},X={};const Q=[];src.forEach(k=>{D[k]=0;X[k]=0;Q.push(k)});
   while(Q.length){Q.sort((a,b)=>D[a]-D[b]);const u=Q.shift();if(u==to)break;(ADJ[u]||[]).forEach(([v,w,x])=>{const nd=D[u]+w+x*3;if(D[v]==null||nd<D[v]){D[v]=nd;P[v]=u;X[v]=(X[u]||0)+x;if(!Q.includes(v))Q.push(v)}})}
@@ -305,7 +331,7 @@ if(!$('fxT').value)$('fxT').value=100;
  function describe(p){const seg=[];p.forEach((k,i)=>{const s=N[k];if(!seg.length||seg[seg.length-1].l!=s.l)seg.push({l:s.l,st:[s.n]});else seg[seg.length-1].st.push(s.n)});
   const sg=seg.filter(x=>x.st.length>1||seg.length==1);if(!sg.length)return '';
   return sg.map((x,i)=>`${i?'→ 轉 ':''}<b>${x.st[0]} → ${x.st[x.st.length-1]}</b>，${LN(x.l)} ${x.st.length-1} 站`).join('<br>')+(sg.length>1?`<div class="k">共轉乘 ${sg.length-1} 次</div>`:'')}
- let M=null,HL=null;try{M=L.map('trMap');L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap',opacity:.55}).addTo(M);
+ let M=null,HL=null;try{M=L.map('trMap');window.TRM=M;L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap',opacity:.55}).addTo(M);
   Object.entries(T.lines).forEach(([l,L_])=>{L.polyline(L_.st.map(s=>[s[1],s[2]]),{color:L_.c,weight:5,opacity:.85}).addTo(M)});
   const used=new Set(Object.values(NEAR).filter(v=>v[1]<=1500).map(v=>N[v[0]].n));
   Object.values(byName).forEach(ks=>{const s=N[ks[0]],u=used.has(s.n);L.circleMarker([s.lat,s.lon],{radius:u?6:3.5,color:u?'#111':'#fff',weight:u?2.5:1,fillColor:T.lines[s.l].c,fillOpacity:1}).addTo(M).on('click',()=>trStation(s.n)).bindTooltip(s.n+(u?'（行程會用到）':''))});
@@ -313,14 +339,42 @@ if(!$('fxT').value)$('fxT').value=100;
  document.querySelector('.trleg').innerHTML=Object.values(T.lines).map(x=>`<span style="background:${x.c}"></span>${x.n}`).join('')+'・粗黑框＝行程會用到的站';
  function draw(p,hit){if(!M)return;if(HL)M.removeLayer(HL);HL=L.layerGroup().addTo(M);if(p){L.polyline(p.map(k=>[N[k].lat,N[k].lon]),{color:'#e0245e',weight:9,opacity:.55}).addTo(HL);M.fitBounds(p.map(k=>[N[k].lat,N[k].lon]).concat(hit?[hit]:[]),{padding:[30,30],maxZoom:15})}
   if(hit)L.circleMarker(hit,{radius:9,color:'#e0245e',weight:3,fillColor:'#fff',fillOpacity:1}).addTo(HL)}
- window.trSpot=function(id){const s=DATA.spots.find(x=>x.id==id),v=NEAR[id];if(!s||!v)return;const st=N[v[0]],m=Math.round(v[1]);const o=sel.value;
+ window.trSpot=function(id){if(window.mapTab&&document.getElementById('transit').hidden)mapTab('t');try{M&&M.invalidateSize()}catch(e){}const s=DATA.spots.find(x=>x.id==id),v=NEAR[id];if(!s||!v)return;const st=N[v[0]],m=Math.round(v[1]);const o=sel.value;
   if(m>1500){draw(null,[s.lat,s.lon]);$('trInfo').innerHTML=`<b>${esc(s.name)}</b><br>🚕 最近的站是 ${LN(st.l)} ${st.n}，但還有約 ${(m/1000).toFixed(1)} km，建議直接搭 Grab（或船）。`;return}
   const p=path(o,v[0]);draw(p,[s.lat,s.lon]);const d=p?describe(p):'';
   $('trInfo').innerHTML=`<b>${esc(s.name)}</b><br>🚇 最近的站：${LN(st.l)} <b>${st.n}</b>，步行約 ${Math.max(1,Math.round(m/80))} 分（直線 ${m} m）<br>${d?d:(o==st.n?'起點就是這一站，直接走過去。':'')}`};
- window.trStation=function(n){const near=DATA.spots.filter(s=>s.lat!=null).map(s=>[s,hv(s,N[byName[n][0]])]).filter(x=>x[1]<=1200).sort((a,b)=>a[1]-b[1]);
+ window.trStation=function(n){try{M&&M.invalidateSize()}catch(e){}const near=DATA.spots.filter(s=>s.lat!=null).map(s=>[s,hv(s,N[byName[n][0]])]).filter(x=>x[1]<=1200).sort((a,b)=>a[1]-b[1]);
   const p=path(sel.value,byName[n][0]);draw(p,null);
   $('trInfo').innerHTML=`<b>🚉 ${n}</b>${p&&p.length>1?'<br>'+describe(p):''}<br>${near.length?'附近景點（1.2 km 內）：<br>'+near.map(([s,d])=>`・<a href="#a-${s.id}">${esc(s.name)}</a> <span class="k">步行約 ${Math.max(1,Math.round(d/80))} 分</span>`).join('<br>'):'1.2 km 內沒有收藏的景點。'}`};
  sel.onchange=()=>$('trInfo').textContent='起點改成 '+sel.value+'，再點一次景點的 🚇。';
 })();
 
+
+// ---- nav v2: today, scrollspy, fade, weather pill, map/transit toggle ----
+(function(){const nav=document.getElementById('nav'),inn=document.getElementById('navIn'),root=document.documentElement;
+ const setH=()=>root.style.setProperty('--navh',(nav.offsetHeight+8)+'px');setH();addEventListener('resize',setH);
+ const fade=()=>{nav.classList.toggle('fade',inn.scrollLeft+inn.clientWidth<inn.scrollWidth-4);nav.classList.toggle('fadeL',inn.scrollLeft>4)};fade();inn.addEventListener('scroll',fade,{passive:true});addEventListener('resize',fade);
+ // today
+ const bk=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Bangkok'}));const md=(bk.getMonth()+1)+'/'+bk.getDate();
+ const idx=bk.getFullYear()==2026?DATA.days.findIndex(d=>d.d.startsWith(md)):-1;
+ document.getElementById('navTodayL').textContent=idx>=0?'今天':'每日路線';const tg=document.getElementById('day-'+(idx>=0?idx:0));
+ document.getElementById('navToday').addEventListener('click',e=>{e.preventDefault();tg.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#days')});
+ if(idx>=0)tg.classList.add('today');
+ // scrollspy
+ const links=[...inn.querySelectorAll('a[data-s]')];const desk=()=>innerWidth>=1024;
+ function spy(){const off=nav.getBoundingClientRect().bottom+12;let cur=null;
+  for(const a of links){const s=a.dataset.s;if(desk()&&(s=='near'||s=='mapwrap'))continue;const el=document.getElementById(s);if(!el||!el.offsetParent&&s!='prep')continue;const r=el.getBoundingClientRect();if(r.top<=off&&r.bottom>off)cur=a}
+  if(!cur){let best=null,bt=-1e9;for(const a of links){const s=a.dataset.s;if(desk()&&(s=='near'||s=='mapwrap'))continue;const el=document.getElementById(s);if(!el)continue;const tp=el.getBoundingClientRect().top;if(tp<=off&&tp>bt){bt=tp;best=a}}cur=best}
+  links.forEach(a=>a.classList.toggle('on',a===cur));
+  if(cur){const l=cur.offsetLeft-inn.offsetLeft,r=l+cur.offsetWidth;if(l<inn.scrollLeft+8||r>inn.scrollLeft+inn.clientWidth-30)inn.scrollTo({left:Math.max(0,l-(inn.clientWidth-cur.offsetWidth)/2),behavior:'smooth'})}}
+ let tk=0;addEventListener('scroll',()=>{if(!tk){tk=1;requestAnimationFrame(()=>{tk=0;spy()})}},{passive:true});spy();
+ // weather pill
+ const wx=document.getElementById('wx'),pill=document.getElementById('wxPill');
+ const tog=o=>{wx.hidden=!o;pill.setAttribute('aria-expanded',o);if(o)wx.scrollIntoView({behavior:'smooth',block:'nearest'})};
+ pill.onclick=()=>tog(wx.hidden);document.getElementById('wxClose').onclick=()=>tog(false);
+ // map / transit toggle
+ window.mapTab=function(v){document.querySelectorAll('#mapT button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));document.getElementById('mapP').hidden=v!='m';document.getElementById('transit').hidden=v!='t';
+  setTimeout(()=>{try{if(v=='m'&&MAP)MAP.invalidateSize();if(v=='t'&&window.TRM)TRM.invalidateSize()}catch(e){}},50)};
+ document.querySelectorAll('#mapT button').forEach(b=>b.onclick=()=>mapTab(b.dataset.v));
+})();
 </script></body></html>
