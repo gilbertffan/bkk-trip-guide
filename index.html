@@ -15,7 +15,7 @@ label{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:15px;col
 <label><input type="checkbox" id="rm">記住這台裝置</label>
 <div class="er" id="er" role="alert"></div><div class="st" id="st"></div></form>
 <script>
-(function(){const M={"s": "4iODJ77RJ9mQ04+ALZdMpA==", "i": "mtT01D2sKKf8EH5H", "n": 4, "it": 600000, "v": "5f949b00397c"},LK='bkk_lock_key';const $=i=>document.getElementById(i);
+(function(){const M={"s": "JmFm1PPRG6q+vZhI1SR9/w==", "i": "QZLGFW6ZEVQ9PLxq", "n": 4, "it": 600000, "v": "552eb1aaee55"},LK='bkk_lock_key';const $=i=>document.getElementById(i);
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));const tob64=u=>{let s='';for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode.apply(null,u.subarray(i,i+32768));return btoa(s)};
 if(!(window.crypto&&crypto.subtle&&window.DecompressionStream)){$('er').textContent='這個瀏覽器太舊，無法解鎖，請更新 iOS / Chrome。';$('go').disabled=true;return}
 let CT=null;const load=Promise.all(Array.from({length:M.n},(_,i)=>fetch('data/c'+(i+1)+'.txt?v='+M.v,{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.text()}))).then(a=>CT=b64(a.join('')));
