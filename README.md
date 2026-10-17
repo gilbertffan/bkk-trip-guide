@@ -1,3 +1,3 @@
-# BKK trip guide
+# Trip guide
 
-A single-page Bangkok travel guide. Open index.html in a browser.
+Private, password-protected static page.
