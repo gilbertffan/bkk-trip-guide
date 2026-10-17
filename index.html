@@ -15,40 +15,37 @@ label{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:15px;col
 <label><input type="checkbox" id="rm">記住這台裝置</label>
 <div class="er" id="er" role="alert"></div><div class="st" id="st"></div></form>
 <script>
-(function(){let M={"s": "JmFm1PPRG6q+vZhI1SR9/w==", "i": ["5UoDiCRdYVuzaKjM", "/00ovnDzJ4qyqJ0J", "i8Ns+GkNGvVZTQ8G", "PwxiftnlATykzPbB"], "n": 4, "it": 600000, "v": "276103c733b0"};const LK='bkk_lock_key';const $=i=>document.getElementById(i);
+(function(){let M={"s": "JmFm1PPRG6q+vZhI1SR9/w==", "n": 4, "it": 600000, "v": "53252669d93e", "f": 2};const LK='bkk_lock_key';const $=i=>document.getElementById(i);
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));const tob64=u=>{let s='';for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode.apply(null,u.subarray(i,i+32768));return btoa(s)};
 if(!(window.crypto&&crypto.subtle&&window.DecompressionStream)){$('er').textContent='這個瀏覽器太舊，無法解鎖，請更新 iOS / Chrome。';$('go').disabled=true;return}
-const ivs=()=>Array.isArray(M.i)?M.i:[M.i];
-function fetchCT(bust){const q='?v='+M.v+(bust?'&r='+Date.now():'');
- return Promise.all(Array.from({length:M.n},(_,i)=>fetch('data/c'+(i+1)+'.txt'+q,{cache:bust?'reload':'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.text()})))}
+// chunk = "BKK2.<ver>.<i>.<n>.<iv>\n<base64 ciphertext>" (self-describing, so a CDN-stale index.html still works)
+const get=(i,q,bust)=>fetch('data/c'+i+'.txt'+q,{cache:bust?'reload':'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{const k=t.indexOf('\n'),h=t.slice(0,k).split('.');if(h[0]!=='BKK2')throw 0;return {v:h[1],i:+h[2],n:+h[3],iv:h[4],ct:t.slice(k+1)}});
+async function fetchCT(bust){const q='?v='+M.v+(bust?'&r='+Date.now():'');let a=await Promise.all(Array.from({length:M.n},(_,i)=>get(i+1,q,bust)));
+ const n=a[0].n;if(n>a.length){a=a.concat(await Promise.all(Array.from({length:n-a.length},(_,i)=>get(a.length+i+1,q,bust))))}return a.slice(0,n)}
+const consistent=a=>a.every(x=>x.v===a[0].v&&x.n===a.length);
 let CT=null,refreshed=false;let load=fetchCT(false).then(a=>CT=a);
 load.catch(()=>{$('er').textContent='資料載入失敗，請確認網路後重新整理。'});
-// githack/CDN can serve a stale index.html or stale chunks right after an update: re-read the manifest and chunks once, cache-busted.
-async function refresh(){if(refreshed)return false;refreshed=true;
- try{const u=location.href.split('#')[0];const r=await fetch(u+(u.includes('?')?'&':'?')+'r='+Date.now(),{cache:'reload'});const h=await r.text();
-  const m=h.match(/let M=(\{.*?\});const LK=/)||h.match(/const M=(\{.*?\}),LK=/);if(m){const f=JSON.parse(m[1]);if(f.s&&f.v)M=f}}catch(e){}
- try{CT=await fetchCT(true);return true}catch(e){return false}}
+async function refresh(){if(refreshed)return false;refreshed=true;try{CT=await fetchCT(true);return true}catch(e){return false}}
 async function derive(pw){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
  return crypto.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt:b64(M.s),iterations:M.it},k,{name:'AES-GCM',length:256},true,['decrypt'])}
-async function dec(key){await load;const iv=ivs();let parts;
- if(iv.length===CT.length){parts=[];for(let i=0;i<CT.length;i++)parts.push(new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(iv[i])},key,b64(CT[i]))))}
- else parts=[new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(iv[0])},key,b64(CT.join(''))))];
+const STALE={stale:1};
+async function dec(key){if(!consistent(CT))throw STALE;const parts=[];
+ for(const c of CT)parts.push(new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(c.iv)},key,b64(c.ct))));
  return await new Response(new Blob(parts).stream().pipeThrough(new DecompressionStream('gzip'))).text()}
-async function open_(key,pwForRederive){try{return await dec(key)}catch(e){
- const oldS=M.s;if(!(await refresh()))throw e;
- if(M.s!==oldS){if(!pwForRederive)throw e;key=await derive(pwForRederive)}
- return {html:await dec(key),key}}}
+// returns html; throws STALE (mixed cached versions even after a cache-busted refetch) or a decrypt error (wrong key)
+async function open_(key){await load;try{return await dec(key)}catch(e){if(!(await refresh()))throw e;return await dec(key)}}
 function show(html){document.open();document.write(html);document.close()}
 function note(t){$('st').textContent='';$('er').textContent=t}
+const UPD='網頁正在更新，請過 1–2 分鐘再重新整理';
 async function auto(){let s=null;try{s=JSON.parse(localStorage.getItem(LK)||'null')}catch(e){}if(!s)return;
  if(s.s!==M.s){localStorage.removeItem(LK);note('網頁已更新，請再輸入一次密碼');return}
  $('st').textContent='解鎖中…';
- try{const key=await crypto.subtle.importKey('raw',b64(s.k),{name:'AES-GCM'},false,['decrypt']);let r=await open_(key);show(typeof r==='string'?r:r.html)}
- catch(e){localStorage.removeItem(LK);note('網頁已更新，請再輸入一次密碼')}}
+ try{const key=await crypto.subtle.importKey('raw',b64(s.k),{name:'AES-GCM'},false,['decrypt']);show(await open_(key))}
+ catch(e){if(e===STALE){note(UPD);return}if(CT){localStorage.removeItem(LK);note('網頁已更新，請再輸入一次密碼')}else note('資料載入失敗，請確認網路後重新整理。')}}
 $('f').onsubmit=async e=>{e.preventDefault();const pw=$('pw').value;if(!pw){$('er').textContent='請輸入密碼';return}
  $('er').textContent='';$('go').disabled=true;$('st').textContent='解鎖中…';let key,html;
- try{key=await derive(pw);let r=await open_(key,pw);if(typeof r==='string')html=r;else{html=r.html;key=r.key}}
- catch(err){$('go').disabled=false;$('st').textContent='';$('pw').value='';$('er').textContent=CT?'密碼錯誤，請再試一次':'資料載入失敗，請確認網路後重新整理。';return}
+ try{key=await derive(pw);html=await open_(key)}
+ catch(err){$('go').disabled=false;$('st').textContent='';if(err===STALE){note(UPD);return}$('pw').value='';$('er').textContent=CT?'密碼錯誤，請再試一次':'資料載入失敗，請確認網路後重新整理。';return}
  if($('rm').checked){try{localStorage.setItem(LK,JSON.stringify({s:M.s,k:tob64(new Uint8Array(await crypto.subtle.exportKey('raw',key)))}))}catch(e){}}else localStorage.removeItem(LK);
  show(html)};
 auto()})();
