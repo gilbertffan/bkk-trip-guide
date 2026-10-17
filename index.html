@@ -15,21 +15,40 @@ label{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:15px;col
 <label><input type="checkbox" id="rm">記住這台裝置</label>
 <div class="er" id="er" role="alert"></div><div class="st" id="st"></div></form>
 <script>
-(function(){const M={"s": "JmFm1PPRG6q+vZhI1SR9/w==", "i": "QZLGFW6ZEVQ9PLxq", "n": 4, "it": 600000, "v": "552eb1aaee55"},LK='bkk_lock_key';const $=i=>document.getElementById(i);
+(function(){let M={"s": "JmFm1PPRG6q+vZhI1SR9/w==", "i": ["oj6V6siWbn2tDfag", "dsTJv/qqEkcjNkN1", "MXMuVs9MxparHatl", "dpI5ZDs/QuduUkiF"], "n": 4, "it": 600000, "v": "5d7dbb635fcf"};const LK='bkk_lock_key';const $=i=>document.getElementById(i);
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));const tob64=u=>{let s='';for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode.apply(null,u.subarray(i,i+32768));return btoa(s)};
 if(!(window.crypto&&crypto.subtle&&window.DecompressionStream)){$('er').textContent='這個瀏覽器太舊，無法解鎖，請更新 iOS / Chrome。';$('go').disabled=true;return}
-let CT=null;const load=Promise.all(Array.from({length:M.n},(_,i)=>fetch('data/c'+(i+1)+'.txt?v='+M.v,{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.text()}))).then(a=>CT=b64(a.join('')));
+const ivs=()=>Array.isArray(M.i)?M.i:[M.i];
+function fetchCT(bust){const q='?v='+M.v+(bust?'&r='+Date.now():'');
+ return Promise.all(Array.from({length:M.n},(_,i)=>fetch('data/c'+(i+1)+'.txt'+q,{cache:bust?'reload':'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.text()})))}
+let CT=null,refreshed=false;let load=fetchCT(false).then(a=>CT=a);
 load.catch(()=>{$('er').textContent='資料載入失敗，請確認網路後重新整理。'});
+// githack/CDN can serve a stale index.html or stale chunks right after an update: re-read the manifest and chunks once, cache-busted.
+async function refresh(){if(refreshed)return false;refreshed=true;
+ try{const u=location.href.split('#')[0];const r=await fetch(u+(u.includes('?')?'&':'?')+'r='+Date.now(),{cache:'reload'});const h=await r.text();
+  const m=h.match(/let M=(\{.*?\});const LK=/)||h.match(/const M=(\{.*?\}),LK=/);if(m){const f=JSON.parse(m[1]);if(f.s&&f.v)M=f}}catch(e){}
+ try{CT=await fetchCT(true);return true}catch(e){return false}}
 async function derive(pw){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
  return crypto.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt:b64(M.s),iterations:M.it},k,{name:'AES-GCM',length:256},true,['decrypt'])}
-async function open_(key){await load;const z=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(M.i)},key,CT);
- const html=await new Response(new Blob([z]).stream().pipeThrough(new DecompressionStream('gzip'))).text();return html}
+async function dec(key){await load;const iv=ivs();let parts;
+ if(iv.length===CT.length){parts=[];for(let i=0;i<CT.length;i++)parts.push(new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(iv[i])},key,b64(CT[i]))))}
+ else parts=[new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(iv[0])},key,b64(CT.join(''))))];
+ return await new Response(new Blob(parts).stream().pipeThrough(new DecompressionStream('gzip'))).text()}
+async function open_(key,pwForRederive){try{return await dec(key)}catch(e){
+ const oldS=M.s;if(!(await refresh()))throw e;
+ if(M.s!==oldS){if(!pwForRederive)throw e;key=await derive(pwForRederive)}
+ return {html:await dec(key),key}}}
 function show(html){document.open();document.write(html);document.close()}
-async function auto(){try{const s=JSON.parse(localStorage.getItem(LK)||'null');if(!s||s.s!==M.s)return;$('st').textContent='解鎖中…';
- const key=await crypto.subtle.importKey('raw',b64(s.k),{name:'AES-GCM'},false,['decrypt']);show(await open_(key))}catch(e){localStorage.removeItem(LK);$('st').textContent=''}}
+function note(t){$('st').textContent='';$('er').textContent=t}
+async function auto(){let s=null;try{s=JSON.parse(localStorage.getItem(LK)||'null')}catch(e){}if(!s)return;
+ if(s.s!==M.s){localStorage.removeItem(LK);note('網頁已更新，請再輸入一次密碼');return}
+ $('st').textContent='解鎖中…';
+ try{const key=await crypto.subtle.importKey('raw',b64(s.k),{name:'AES-GCM'},false,['decrypt']);let r=await open_(key);show(typeof r==='string'?r:r.html)}
+ catch(e){localStorage.removeItem(LK);note('網頁已更新，請再輸入一次密碼')}}
 $('f').onsubmit=async e=>{e.preventDefault();const pw=$('pw').value;if(!pw){$('er').textContent='請輸入密碼';return}
  $('er').textContent='';$('go').disabled=true;$('st').textContent='解鎖中…';let key,html;
- try{key=await derive(pw);html=await open_(key)}catch(err){$('go').disabled=false;$('st').textContent='';$('pw').value='';$('er').textContent=CT?'密碼錯誤，請再試一次':'資料載入失敗，請確認網路後重新整理。';return}
+ try{key=await derive(pw);let r=await open_(key,pw);if(typeof r==='string')html=r;else{html=r.html;key=r.key}}
+ catch(err){$('go').disabled=false;$('st').textContent='';$('pw').value='';$('er').textContent=CT?'密碼錯誤，請再試一次':'資料載入失敗，請確認網路後重新整理。';return}
  if($('rm').checked){try{localStorage.setItem(LK,JSON.stringify({s:M.s,k:tob64(new Uint8Array(await crypto.subtle.exportKey('raw',key)))}))}catch(e){}}else localStorage.removeItem(LK);
  show(html)};
 auto()})();
